@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Container(
-    color: Colors.white,
-  ));
+  runApp(
+    MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.purple),
+      home: HomePage(),
+    ),
+  );
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var count = 0;
+
+  void increment() {
+    count++;
+    setState(() {});
+  }
+
+  @override
+  Widget build(Object context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Contador'),
+      ),
+      body: Center(
+        child: Text(
+          'CONTADOR\n$count',
+          textAlign: TextAlign.center,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: increment,
+        child: Icon(Icons.add),
+      ),
+    );
+  }
 }
